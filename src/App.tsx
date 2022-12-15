@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
+import { useRoutes } from 'react-router-dom'
+import routes from './router'
 
-export class App extends PureComponent {
-  render() {
-    return <div>App</div>
-  }
+function App() {
+  return <div className="App">{useRoutes(routes)}</div>
 }
 
 export default App
