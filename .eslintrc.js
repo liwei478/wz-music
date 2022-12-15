@@ -8,8 +8,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    '@vue/prettier',
-    '@vue/prettier/@typescript-eslint',
     'plugin:prettier/recommended'
   ],
   overrides: [],
