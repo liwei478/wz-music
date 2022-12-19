@@ -8,6 +8,9 @@ const store = configureStore({
   }
 })
 
+// const state = store.getState()
+// type StateType = typeof state
+
 type GetStateFnType = typeof store.getState
 type IRootState = ReturnType<GetStateFnType>
 type DispatchType = typeof store.dispatch

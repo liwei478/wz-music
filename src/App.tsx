@@ -3,7 +3,6 @@ import { useRoutes, Link } from 'react-router-dom'
 import routes from './router'
 import { shallowEqualApp, useAppDispatch, useAppSelector } from './store'
 import { changeMessageAction } from './store/modules/counter'
-import Demo02 from './views/demo/demo02'
 
 // import { useSelector } from 'react-redux'
 // import { IRootState } from './store'
@@ -35,7 +34,6 @@ function App() {
   return (
     <div className="App">
       <div className="nav">
-        <Demo02 name="lwz" age={18} />
         <Link to="/discover">发现音乐</Link>
         <Link to="/mine">我的音乐</Link>
         <Link to="/focus">关注</Link>
