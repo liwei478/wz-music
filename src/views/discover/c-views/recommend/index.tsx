@@ -3,6 +3,8 @@ import type { FC } from 'react'
 import { fetchBannerDataAction } from './store/recommend'
 import { useAppDispatch } from '@/store'
 import TopBanner from './c-cpns/top-banner'
+import { RecommendWrapper } from './style'
+import HotRecommend from './c-cpns/hot-recommend'
 
 interface IProps {
   children?: ReactNode
@@ -16,10 +18,16 @@ const Recommend: FC<IProps> = () => {
 
   // jsx render 函数的返回
   return (
-    <div>
+    <RecommendWrapper>
       <TopBanner />
-      Recommend
-    </div>
+      <div className="content wrap-v2">
+        <div className="left">
+          <HotRecommend />
+          left
+        </div>
+        <div className="right">right</div>
+      </div>
+    </RecommendWrapper>
   )
 }
 
