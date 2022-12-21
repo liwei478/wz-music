@@ -1,10 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { getBanners } from '../../service/recommend'
+import { getBanners, getHotRecommends } from '../../service/recommend'
 
 export const fetchBannerDataAction = createAsyncThunk('banners', async (arg, { dispatch }) => {
   const res = await getBanners()
   dispatch(changeBannersAction(res.banners))
 })
+
+export const fetchHotRecommendsAction = createAsyncThunk(
+  'hotRecommends',
+  async (org, { dispatch }) => {
+    const res = await getHotRecommends(8)
+    dispatch(changeHotRecommendsAction(res.result))
+  }
+)
 
 interface IBannerData {
   imageUrl: string
@@ -19,10 +27,12 @@ interface IBannerData {
 }
 interface IRecommendState {
   banners: IBannerData[]
+  hotRecommends: any[]
 }
 
 const initialState: IRecommendState = {
-  banners: []
+  banners: [],
+  hotRecommends: []
 }
 
 const recommendSlice = createSlice({
@@ -31,6 +41,9 @@ const recommendSlice = createSlice({
   reducers: {
     changeBannersAction(state, { payload }) {
       state.banners = payload
+    },
+    changeHotRecommendsAction(state, { payload }) {
+      state.hotRecommends = payload
     }
   }
   // extraReducers: (builder) => {
@@ -47,5 +60,5 @@ const recommendSlice = createSlice({
   // }
 })
 
-export const { changeBannersAction } = recommendSlice.actions
+export const { changeBannersAction, changeHotRecommendsAction } = recommendSlice.actions
 export default recommendSlice.reducer
