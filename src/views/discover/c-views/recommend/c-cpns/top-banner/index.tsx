@@ -38,7 +38,7 @@ const TopBanner: FC<IProps> = () => {
 
   /**获取背景图片 */
   let bgImageUrl
-  if (currentIndex >= 0 && banners.length > 0) {
+  if (currentIndex >= 0 && banners?.length > 0) {
     bgImageUrl = banners[currentIndex].imageUrl + '?imageView&blur=40x20'
   }
 

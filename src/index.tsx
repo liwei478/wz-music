@@ -5,16 +5,20 @@ import { Provider } from 'react-redux'
 
 import 'normalize.css'
 import './assets/css/index.less'
+import { ThemeProvider } from 'styled-components'
 
 import App from '@/App'
 import store from '@/store'
+import theme from './assets/theme'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <Provider store={store}>
     <HashRouter>
-      <App />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </HashRouter>
   </Provider>
 )

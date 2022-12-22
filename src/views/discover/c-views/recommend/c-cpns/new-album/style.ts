@@ -35,6 +35,13 @@ export const AlbumWrapper = styled.div`
 
     .banner {
       overflow: hidden;
+      flex: 1;
+
+      .album-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
     }
   }
 
