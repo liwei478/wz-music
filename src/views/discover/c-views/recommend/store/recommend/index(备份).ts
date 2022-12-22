@@ -1,17 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getBanners, getHotRecommends, getNewAlbum } from '../../service/recommend'
 
-export const fetchRecommendDataAction = createAsyncThunk('fetchdata', (_, { dispatch }) => {
-  // 1. 获取轮播图效果
-  getBanners().then((res) => {
-    dispatch(changeBannersAction(res.banners))
-  })
-  getHotRecommends(8).then((res) => {
+export const fetchBannerDataAction = createAsyncThunk('banners', async (arg, { dispatch }) => {
+  const res = await getBanners()
+  dispatch(changeBannersAction(res.banners))
+})
+
+export const fetchHotRecommendsAction = createAsyncThunk(
+  'hotRecommends',
+  async (org, { dispatch }) => {
+    const res = await getHotRecommends(8)
     dispatch(changeHotRecommendsAction(res.result))
-  })
-  getNewAlbum().then((res) => {
-    dispatch(changeNewAlbumsAction(res.albums))
-  })
+  }
+)
+export const fetchNewAlbumsAction = createAsyncThunk('newAlbum', async (arg, { dispatch }) => {
+  const res = await getNewAlbum()
+  dispatch(changeNewAlbumsAction(res.albums))
 })
 
 interface IBannerData {

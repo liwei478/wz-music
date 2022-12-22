@@ -1,9 +1,10 @@
 import React, { memo, ReactNode, useEffect } from 'react'
 import type { FC } from 'react'
 import {
-  fetchBannerDataAction,
+  /* fetchBannerDataAction,
   fetchHotRecommendsAction,
-  fetchNewAlbumsAction
+  fetchNewAlbumsAction, */
+  fetchRecommendDataAction
 } from './store/recommend'
 import { useAppDispatch } from '@/store'
 import TopBanner from './c-cpns/top-banner'
@@ -18,9 +19,10 @@ const Recommend: FC<IProps> = () => {
   /**发起action请求获取数据 */
   const dispatch = useAppDispatch()
   useEffect(() => {
-    dispatch(fetchBannerDataAction())
-    dispatch(fetchHotRecommendsAction())
-    dispatch(fetchNewAlbumsAction())
+    // dispatch(fetchBannerDataAction())
+    // dispatch(fetchHotRecommendsAction())
+    // dispatch(fetchNewAlbumsAction())
+    dispatch(fetchRecommendDataAction())
   }, [])
 
   // jsx render 函数的返回
