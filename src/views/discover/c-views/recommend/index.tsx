@@ -1,6 +1,7 @@
 import React, { memo, ReactNode, useEffect } from 'react'
 import type { FC } from 'react'
 import {
+  fetchRankingDataAction,
   /* fetchBannerDataAction,
   fetchHotRecommendsAction,
   fetchNewAlbumsAction, */
@@ -11,6 +12,7 @@ import TopBanner from './c-cpns/top-banner'
 import { RecommendWrapper } from './style'
 import HotRecommend from './c-cpns/hot-recommend'
 import NewAlbum from './c-cpns/new-album'
+import TopRanking from './c-cpns/top-ranking'
 
 interface IProps {
   children?: ReactNode
@@ -19,10 +21,12 @@ const Recommend: FC<IProps> = () => {
   /**发起action请求获取数据 */
   const dispatch = useAppDispatch()
   useEffect(() => {
+    dispatch(fetchRecommendDataAction())
+    dispatch(fetchRankingDataAction())
+
     // dispatch(fetchBannerDataAction())
     // dispatch(fetchHotRecommendsAction())
     // dispatch(fetchNewAlbumsAction())
-    dispatch(fetchRecommendDataAction())
   }, [])
 
   // jsx render 函数的返回
@@ -33,7 +37,7 @@ const Recommend: FC<IProps> = () => {
         <div className="left">
           <HotRecommend />
           <NewAlbum />
-          left
+          <TopRanking />
         </div>
         <div className="right">right</div>
       </div>
