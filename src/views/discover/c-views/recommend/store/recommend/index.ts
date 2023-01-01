@@ -1,5 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { getBanners, getHotRecommends, getNewAlbum, getRankingData } from '../../service/recommend'
+import {
+  getArtistList,
+  getBanners,
+  getHotRecommends,
+  getNewAlbum,
+  getRankingData
+} from '../../service/recommend'
 
 export const fetchRecommendDataAction = createAsyncThunk('fetchdata', (_, { dispatch }) => {
   // 1. 获取轮播图效果
@@ -11,6 +17,9 @@ export const fetchRecommendDataAction = createAsyncThunk('fetchdata', (_, { disp
   })
   getNewAlbum().then((res) => {
     dispatch(changeNewAlbumsAction(res.albums))
+  })
+  getArtistList(5).then((res) => {
+    dispatch(changeSettleSingerAction(res.artists))
   })
 })
 
@@ -67,17 +76,21 @@ interface IRecommendState {
   // upRanking: any[]
   // newRanking: any[]
   // originRanking: any[]
+
+  settleSingers: any[]
 }
 
 const initialState: IRecommendState = {
   banners: [],
   hotRecommends: [],
   newAlbums: [],
-  rankings: []
+  rankings: [],
 
   // upRanking: [],
   // newRanking: [],
   // originRanking: []
+
+  settleSingers: []
 }
 
 const recommendSlice = createSlice({
@@ -95,6 +108,9 @@ const recommendSlice = createSlice({
     },
     changeRankingsAction(state, { payload }) {
       state.rankings = payload
+    },
+    changeSettleSingerAction(state, { payload }) {
+      state.settleSingers = payload
     }
   }
   // extraReducers: (builder) => {
@@ -115,6 +131,7 @@ export const {
   changeBannersAction,
   changeHotRecommendsAction,
   changeNewAlbumsAction,
-  changeRankingsAction
+  changeRankingsAction,
+  changeSettleSingerAction
 } = recommendSlice.actions
 export default recommendSlice.reducer

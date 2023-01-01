@@ -7,5 +7,5 @@ export function formatCount(count: number) {
 }
 
 export function getImageSize(imgUrl: string, width: number, height = width) {
-  return imgUrl + `?param=${width}x${height}`
+  return imgUrl + `?param=${width}y${height}`
 }
