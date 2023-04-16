@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_08_react_typescript_music=self.webpackChunk_08_react_typescript_music||[]).push([[481],{2481:function(e,c,t){t.r(c);var i=t(2791),n=t(184),r=function(){return(0,n.jsx)("div",{children:"Ranking"})};c.default=(0,i.memo)(r)}}]);
+//# sourceMappingURL=481.8c6532f1.chunk.js.map
