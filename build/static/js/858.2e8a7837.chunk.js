@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunk_08_react_typescript_music=self.webpackChunk_08_react_typescript_music||[]).push([[858],{5858:function(e,c,t){t.r(c);var r=t(2791),i=t(184),s=function(){return(0,i.jsx)("div",{children:"Djradio"})};c.default=(0,r.memo)(s)}}]);
-//# sourceMappingURL=858.2e8a7837.chunk.js.map
