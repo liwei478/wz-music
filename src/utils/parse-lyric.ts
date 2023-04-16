@@ -19,8 +19,7 @@ export function parseLyric(lyricString: string) {
     // 2.获取每一组的时间
     const time1 = Number(results[1]) * 60 * 1000
     const time2 = Number(results[2]) * 1000
-    const time3 =
-      results[3].length === 2 ? Number(results[3]) * 10 : Number(results[3])
+    const time3 = results[3].length === 2 ? Number(results[3]) * 10 : Number(results[3])
     const time = time1 + time2 + time3
 
     // 3.获取每一组的文本
